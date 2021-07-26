@@ -1,0 +1,45 @@
+const NAVIGATOR = {
+  START: 'START',
+  LOGIN: 'LOGIN',
+  LANDING: 'LANDING',
+};
+const LOGIN_SCREEN = {
+  LOGIN: 'LOGIN',
+  REGISTER: 'REGISTER',
+  PASSWORD_RECOVERY: 'PASSWORD_RECOVERY',
+  VERIFICATION_MAIL: 'VERIFICATION_MAIL',
+};
+//TODO: cambiar  a stack
+const LANDING_SCREEN = {
+  ALARM: 'ALARM',
+  ZONE: 'ZONE',
+  NODE: 'NODE',
+  MORE: 'MORE',
+};
+const TAB = {
+  ALARM: 'TAB_ALARM',
+  ZONE: 'TAB_ZONE',
+  NODE: 'TAB_NODE',
+  MORE: 'TAB_MORE',
+};
+
+
+const PROFILE_SCREEN = {
+  PROFILE: 'PROFILE',
+};
+const HELP_SCREEN = {
+  HELP: 'HELP',
+};
+const LOG_OUT_SCREEN = {
+  LOG_OUT: 'LOGOUT',
+};
+
+export default {
+  NAVIGATOR,
+  LOGIN_SCREEN,
+  LANDING_SCREEN,
+  TAB,
+  PROFILE_SCREEN,
+  HELP_SCREEN,
+  LOG_OUT_SCREEN,
+};
