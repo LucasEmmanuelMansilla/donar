@@ -1,34 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavigatorConstant from './NavigatorConstant';
-import Drawer from './Drawer';
-import StartScreen from '../ui/Start/StartScreen';
-import LoginStackNavigator from './LoginStackNavigator';
+import  LoginStackNavigator from './LoginStackNavigator';
+import HomeDrawerNavigator from './HomeDrawerNavigator';
 
 const Stack = createStackNavigator();
 
-const RootNavigator = () => {
+export default class RootNavigator extends Component {
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={NavigatorConstant.NAVIGATOR.START}
-        headerMode="none">
-        <Stack.Screen
-          name={NavigatorConstant.NAVIGATOR.START}
-          component={StartScreen}
-        />
-        <Stack.Screen
-          name={NavigatorConstant.NAVIGATOR.LOGIN}
-          component={LoginStackNavigator}
-        />
-        <Stack.Screen
-          name={NavigatorConstant.NAVIGATOR.LANDING}
-          component={Drawer}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
-export default RootNavigator;
+  render() {
+    return (
+        <NavigationContainer>
+        <Stack.Navigator
+        headerMode="none"
+        initialRouteName={NavigatorConstant.NAVIGATOR.LOGIN}>
+            <Stack.Screen name={NavigatorConstant.NAVIGATOR.LOGIN} component={LoginStackNavigator} />
+            <Stack.Screen name={NavigatorConstant.NAVIGATOR.HOME} component={HomeDrawerNavigator} />
+        </Stack.Navigator>
+     </NavigationContainer>
+    );
+  }
+}
