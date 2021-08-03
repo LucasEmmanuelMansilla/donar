@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
-import {BackHandler, View, Text} from 'react-native';
+import React from 'react';
+import { View, Text} from 'react-native';
 //import {Provider} from 'react-redux';
 //TODO: No existe la carpeta "src" en el proyecto.
 //import RootNavigator from './navigation';
@@ -17,11 +17,11 @@ import {BackHandler, View, Text} from 'react-native';
 
 const App = () => {
   //disable hardware backbutton
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', () => true);
-    return () =>
-      BackHandler.removeEventListener('hardwareBackPress', () => true);
-  }, []);
+  // useEffect(() => {
+  //   BackHandler.addEventListener('hardwareBackPress', () => true);
+  //   return () =>
+  //     BackHandler.removeEventListener('hardwareBackPress', () => true);
+  // }, []);
   return (
        <View>
            <Text>sasd</Text>
