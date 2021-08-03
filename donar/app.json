@@ -1,5 +1,11 @@
 {
-  
-  "name": "donar",
-  "displayName": "Mi App"
+  "expo": {
+    "name": "donar",
+    "slug": "donar",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "donar"
 }
