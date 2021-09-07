@@ -4,17 +4,13 @@ import Onboarding from 'react-native-onboarding-swiper';
 import NavigatorConstant from '../../../navigation/NavigatorConstant';
 import I18n from '../../../assets/localization/i18n';
 
-export default function OnboardingUI(props) {
+export default function OnboardingUI({navigation}) {
   return (
     <Onboarding
       nextLabel={I18n.t('NEXT')}
       skipLabel={I18n.t('SKIP')}
-      onSkip={() =>
-        props.navigation.replace(NavigatorConstant.NAVIGATOR.ONE_TIME_WIZARD)
-      }
-      onDone={() =>
-        props.navigation.replace(NavigatorConstant.NAVIGATOR.ONE_TIME_WIZARD)
-      }
+      onSkip={() => navigation()}
+      onDone={() => navigation()}
       pages={[
         {
           backgroundColor: '#fff',

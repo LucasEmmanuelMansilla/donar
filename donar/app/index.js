@@ -1,6 +1,5 @@
 //import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
-import {BackHandler, View, Text} from 'react-native';
+import React from 'react';
 //import {Provider} from 'react-redux';
 //TODO: No existe la carpeta "src" en el proyecto.
 import RootNavigator from './navigation/index';
@@ -17,27 +16,20 @@ import RootNavigator from './navigation/index';
 
 const App = () => {
   //disable hardware backbutton
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', () => true);
-    return () =>
-      BackHandler.removeEventListener('hardwareBackPress', () => true);
-  }, []);
-  return (
-    <RootNavigator />
-  );
+  return <RootNavigator />;
 };
 
 export default App;
 
 // <Provider store={store}>
-    //   <PersistGate loading={null} persistor={persistStore(store)}>
-    //     <RootNavigator />
-    //     <PNHandler />
-    //     <ErrorHandling />
-    //     {
-    //       // <BrokerSocket />
-    //       // <Toast config = {ToastConfig} ref={(ref) => Toast.setRef(ref)} />
-    //     }
-    //     <Toast ref={(ref) => Toast.setRef(ref)} />
-    //   </PersistGate>
-    // </Provider>
+//   <PersistGate loading={null} persistor={persistStore(store)}>
+//     <RootNavigator />
+//     <PNHandler />
+//     <ErrorHandling />
+//     {
+//       // <BrokerSocket />
+//       // <Toast config = {ToastConfig} ref={(ref) => Toast.setRef(ref)} />
+//     }
+//     <Toast ref={(ref) => Toast.setRef(ref)} />
+//   </PersistGate>
+// </Provider>

@@ -3,10 +3,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavigatorConstant from './NavigatorConstant';
 import LoginStackNavigator from './LoginStackNavigator';
-import HomeDrawerNavigator from './HomeDrawerNavigator';
 import OnboardingStackNavigator from './OnboardingStackNavigator';
 import OneTimeStackNavigator from './OneTimeStackNavigator';
 import AlertsScreen from '../ui/screens/alerts/AlertsScreen';
+import LandingStackNavigator from './LandingStackNavigator';
+import TurnStackNavigator from './TurnStackNavigator';
+import QRStackNavigator from './QRStackNavigator';
+
 
 const Stack = createStackNavigator();
 
@@ -25,7 +28,7 @@ export default class RootNavigator extends Component {
           />
           <Stack.Screen
             name={NavigatorConstant.NAVIGATOR.LANDING}
-            component={HomeDrawerNavigator}
+            component={LandingStackNavigator}
           />
           <Stack.Screen
             name={NavigatorConstant.NAVIGATOR.ONBOARDING}
@@ -39,6 +42,15 @@ export default class RootNavigator extends Component {
             name={NavigatorConstant.PROFILE_STACK.ALERTS_SCREEN}
             component={AlertsScreen}
           />
+          <Stack.Screen
+            name={NavigatorConstant.NAVIGATOR.TURN}
+            component={TurnStackNavigator}
+          />
+          {/* <Stack.Screen
+            name={NavigatorConstant.NAVIGATOR.QR}
+            component={QRStackNavigator}
+          /> */}
+
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -1,12 +1,12 @@
 import I18n from '../../../../assets/localization/i18n';
-import React, {useState} from 'react';
+import React from 'react';
 import {Pressable, Text, TextInput, View, Modal} from 'react-native';
-import NavigatorConstant from '../../../../navigation/NavigatorConstant';
 
-export default function AdditionalDataUI(props) {
-
-  const [modalVisible, setModalVisible] = useState(false);
-
+export default function AdditionalDataUI({
+  navigation,
+  _visibleModal,
+  isVisible,
+}) {
   return (
     <View>
       <Text> {I18n.t('LOGIN_WELCOME')} </Text>
@@ -16,30 +16,19 @@ export default function AdditionalDataUI(props) {
       <TextInput placeholder={I18n.t('PLACEHOLDER_PASSWORD')} />
       <TextInput placeholder={I18n.t('PLACEHOLDER_CONFIRM_PASSWORD')} />
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Cerrar');
-          setModalVisible(!modalVisible);
-        }}>
+      <Modal animationType="slide" transparent={true} visible={isVisible}>
         <View>
           <View style={{marginTop: 100}}>
             <Text>{I18n.t('PLEASE_VALIDATE_CODE')}</Text>
             <Pressable
-              onPress={() => setModalVisible(!modalVisible)}
-              onPressIn={() =>
-                props.navigation.push(
-                  NavigatorConstant.LOGIN_STACK.CODE_VERIFICATION,
-                )
-              }>
+              onPress={() => _visibleModal()}
+              onPressIn={() => navigation()}>
               <Text>Confirmar</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
-      <Pressable onPress={() => setModalVisible(true)}>
+      <Pressable onPress={() => _visibleModal()}>
         <Text>{I18n.t('REGISTER_ACCOUNT_CREATE_ACCOUNT_BUTTON')}</Text>
       </Pressable>
     </View>

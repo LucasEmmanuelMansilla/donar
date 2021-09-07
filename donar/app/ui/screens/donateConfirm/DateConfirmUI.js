@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {View, Text, Pressable, Modal} from 'react-native';
-import NavigatorConstant from '../../../navigation/NavigatorConstant';
+import I18n from '../../../assets/localization/i18n'
 
-export default function DateConfirmUI(props) {
+export default function DateConfirmUI({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View>
-      <Text>Fecha y hora</Text>
+      <Text>{I18n.t('DATA')}</Text>
       <Modal
         animationType="slide"
         transparent={true}
@@ -18,20 +18,18 @@ export default function DateConfirmUI(props) {
         }}>
         <View>
           <View style={{marginTop: 100}}>
-            <Text>Turno Confirmado</Text>
+            <Text>{I18n.t('TURN_CONFIRM')}</Text>
             <Pressable
               onPress={() => setModalVisible(!modalVisible)}
-              onPressIn={() =>
-                props.navigation.replace(NavigatorConstant.NAVIGATOR.LANDING)
-              }>
-              <Text>Aceptar</Text>
+              onPressIn={() => navigation()}>
+              <Text>{I18n.t('TO_ACCEPT')}</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
 
       <Pressable onPress={() => setModalVisible(!modalVisible)}>
-        <Text>Confirmar Turno</Text>
+        <Text>{I18n.t('TURN_CONFIRM_USER')}</Text>
       </Pressable>
     </View>
   );

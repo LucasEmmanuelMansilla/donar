@@ -1,30 +1,24 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput, Pressable, I18nManager} from 'react-native';
-import NavigatorConstant from '../../../navigation/NavigatorConstant';
+import React from 'react';
+import {View, Text, TextInput, Pressable} from 'react-native';
 import I18n from '../../../assets/localization/i18n';
 
-export default function LoginScreenUI(props) {
+export default function LoginScreenUI({login, register, recoveryPassword}) {
   return (
     <View>
+      <Text>{I18n.t('LOGIN_WELCOME')}</Text>
+      <Text>{I18n.t('LOGIN_WELCOME_SUBTITLE')}</Text>
       <TextInput placeholder={I18n.t('PLACEHOLDER_MAIL')} />
-      <Pressable
-        onPress={() =>
-          props.navigation.push(NavigatorConstant.NAVIGATOR.LANDING)
-        }>
-        <Text>{I18n.t('TO_ACCEPT')}</Text>
+      <TextInput
+        secureTextEntry={true}
+        placeholder={I18n.t('PLACEHOLDER_PASSWORD')}
+      />
+      <Pressable onPress={() => login()}>
+        <Text>{I18n.t('LOGIN_BUTTON_ENTER')}</Text>
       </Pressable>
-      <Pressable
-        onPress={() =>
-          props.navigation.push(NavigatorConstant.LOGIN_STACK.REGISTER_SCREEN)
-        }>
+      <Pressable onPress={() => register()}>
         <Text>{I18n.t('LOGIN_BUTTON_CREATE_ACCOUNT')}</Text>
       </Pressable>
-      <Pressable
-        onPress={() =>
-          props.navigation.push(
-            NavigatorConstant.LOGIN_STACK.PASSWORD_RECOVERY_SCREEN,
-          )
-        }>
+      <Pressable onPress={() => recoveryPassword()}>
         <Text>{I18n.t('LOGIN_BUTTON_FORGOT_PASSWORD')}</Text>
       </Pressable>
     </View>

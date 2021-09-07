@@ -6,6 +6,7 @@ import RegisterScreen from '../ui/screens/login/register/RegisterScreen';
 import RecoveryPassword from '../ui/screens/login/recovery/RecoveryPassword';
 import AdditionalData from '../ui/screens/login/additionalData/AdditionalData';
 import CodeVerification from '../ui/screens/login/codeVerification/CodeVerification';
+import AccountVerificated from '../ui/screens/login/codeVerification/AccountVerificated';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,10 @@ export default class LoginStackNavigator extends Component {
         <Stack.Screen
           name={NavigatorConstant.LOGIN_STACK.PASSWORD_RECOVERY_SCREEN}
           component={RecoveryPassword}
+        />
+        <Stack.Screen
+          name={NavigatorConstant.LOGIN_STACK.ACCOUNT_VERIFICATED_SCREEN}
+          component={AccountVerificated}
         />
       </Stack.Navigator>
     );
